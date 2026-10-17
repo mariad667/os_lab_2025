@@ -1,0 +1,8 @@
+*.o
+*.a
+*.so
+*.out
+app_static
+app_dynamic
+swap_prog
+rs_prog
