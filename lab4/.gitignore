@@ -1,1 +1,5 @@
 src/parallel_min_max
+src/zombie
+src/process_memory
+src/parallel_sum
+*.o
