@@ -1,3 +1,4 @@
+// parallel_min_max.c :
 #include <ctype.h>
 #include <limits.h>
 #include <stdbool.h>
@@ -124,8 +125,9 @@ int main(int argc, char **argv) {
     pid_t child_pid = fork();
     if (child_pid >= 0) {
       active_child_processes += 1;
+      // child process
       if (child_pid == 0) {
-        // child process
+        
         unsigned int begin = (i * array_size) / pnum;
         unsigned int end   = ((i + 1) * array_size) / pnum;
 

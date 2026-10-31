@@ -12,6 +12,7 @@
 #include "sum.h"
 #include "utils.h"
 
+// обертка для потока
 void *ThreadSum(void *args) {
   struct SumArgs *sum_args = (struct SumArgs *)args;
   return (void *)(size_t)Sum(sum_args);
@@ -89,9 +90,9 @@ int main(int argc, char **argv) {
     perror("malloc");
     return 1;
   }
-  GenerateArray(array, array_size, seed); // из 3-й лабы
+  GenerateArray(array, array_size, seed); // функция из 3-й лабы
 
-  // threads и args объявлятся после разбора аргументов
+  // threads и args объявляются после разбора аргументов
   pthread_t *threads = malloc(sizeof(pthread_t) * threads_num);
   struct SumArgs *args = malloc(sizeof(struct SumArgs) * threads_num);
   if (!threads || !args) {
@@ -112,6 +113,7 @@ int main(int argc, char **argv) {
   struct timeval start_time;
   gettimeofday(&start_time, NULL);
 
+  // цикл создания потоков
   for (uint32_t i = 0; i < threads_num; i++) {
     if (pthread_create(&threads[i], NULL, ThreadSum, (void *)&args[i])) {
       printf("Error: pthread_create failed!\n");
@@ -124,8 +126,8 @@ int main(int argc, char **argv) {
 
   int total_sum = 0;
   for (uint32_t i = 0; i < threads_num; i++) {
-    void *retval = NULL;
-    pthread_join(threads[i], &retval);
+    void *retval = NULL;                 // сюда pthread_join запишет возвращенное значение потока
+    pthread_join(threads[i], &retval);   // освобождает ресурсы потока
     total_sum += (int)(size_t)retval;
   }
 
