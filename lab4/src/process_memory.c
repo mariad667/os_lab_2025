@@ -1,4 +1,3 @@
-
 /* Program to display address information about the process */
 /* Adapted from Gray, J., program 1.4 */
 #include <stdio.h>
@@ -8,10 +7,12 @@
 #include <unistd.h>
 
 /* Below is a macro definition */
+// макрос, печатающий имя переменной и ее адрес
 #define SHW_ADR(ID, I) (printf("ID %s \t is at virtual address: %8X\n", ID, &I))
 
 extern int etext, edata, end; /* Global variables for process
                                  memory */
+// extern - определен где-то не в этом файле
 
 char *cptr = "This message is output by the function showit()\n"; /* Static */
 char buffer1[25];
@@ -32,6 +33,7 @@ main() {
   SHW_ADR("i", i);
   strcpy(buffer1, "A demonstration\n");   /* Library function */
   write(1, buffer1, strlen(buffer1) + 1); /* System call */
+  // и библиотечная функция strcpy, и системный вызов write работают с одной и той же памятью.
   showit(cptr);
 
 } /* end of main function */
