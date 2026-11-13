@@ -1,0 +1,6 @@
+client
+server
+*.o
+*.a
+new_client
+new_server
