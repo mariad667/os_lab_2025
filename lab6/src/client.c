@@ -1,4 +1,4 @@
-// ./client --k ? --mod ? --servers servers.txt
+// ./client --k 100 --mod 100004 --servers servers.txt
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>

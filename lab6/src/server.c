@@ -1,4 +1,4 @@
-// ./server --port ? --tnum ?
+// ./server --port 20002 --tnum 5
 #include <limits.h>
 #include <stdbool.h>
 #include <stdint.h>
