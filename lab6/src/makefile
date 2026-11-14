@@ -1,13 +1,13 @@
 CC = gcc
 AR = ar
-CFLAGS = -Wall -Wextra -O2 -std=c11
+CFLAGS = -Wall -Wextra
 LDFLAGS =
 
 # задание 2
-CLIENT      = client
-SERVER      = server
-CLIENT_SRC  = client.c
-SERVER_SRC  = server.c
+CLIENT = client
+SERVER = server
+CLIENT_SRC = client.c
+SERVER_SRC = server.c
 
 # задание 3
 NEW_CLIENT = new_client
